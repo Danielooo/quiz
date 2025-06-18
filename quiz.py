@@ -1,47 +1,48 @@
 import random
 
-# Dictionary of English to Spanish words
-word_bank = {
-    "cat": "gato",
-    "dog": "perro",
-    "house": "casa",
-    "car": "coche",
-    "book": "libro",
-    "apple": "manzana",
+# Woordenboek: Nederlands naar Spaans
+woordenlijst = {
+    "kat": "gato",
+    "hond": "perro",
+    "huis": "casa",
+    "auto": "coche",
+    "boek": "libro",
+    "appel": "manzana",
     "water": "agua",
     "school": "escuela",
-    "sun": "sol",
-    "moon": "luna"
+    "zon": "sol",
+    "maan": "luna"
 }
 
-NUM_QUESTIONS = 5  # Number of quiz questions
+AANTAL_VRAGEN = 5  # Aantal quizvragen
 
-def run_quiz():
-    print("🎉 Welcome to the Spanish Vocabulary Quiz! 🎉")
-    print(f"You will be asked to translate {NUM_QUESTIONS} English words into Spanish.")
-    print("Type your answer and press Enter. Good luck!\n")
+def start_quiz():
+    print("🎉 Welkom bij de Nederlandse-Spaanse Woordquiz! 🎉")
+    print(f"Je krijgt {AANTAL_VRAGEN} Nederlandse woorden. Geef de juiste Spaanse vertaling.")
+    print("Typ je antwoord en druk op Enter. Succes!\n")
 
-    # Randomly select words for the quiz
-    words = random.sample(list(word_bank.items()), k=NUM_QUESTIONS)
+    # Kies willekeurige woorden uit de woordenlijst
+    vragen = random.sample(list(woordenlijst.items()), k=AANTAL_VRAGEN)
     score = 0
 
-    for i, (english, spanish) in enumerate(words, 1):
-        print(f"Question {i}: What is the Spanish word for '{english}'?")
-        answer = input("Your answer: ").strip().lower()
+    for i, (nederlands, spaans) in enumerate(vragen, 1):
+        print(f"Vraag {i}: Wat is het Spaanse woord voor '{nederlands}'?")
+        antwoord = input("Jouw antwoord: ").strip().lower()
 
-        if answer == spanish:
-            print("✅ Correct!\n")
+        if antwoord == spaans:
+            print("✅ Goed gedaan!\n")
             score += 1
         else:
-            print(f"❌ Incorrect. The correct answer was '{spanish}'.\n")
+            print(f"❌ Helaas, het juiste antwoord was '{spaans}'.\n")
 
-    print(f"Quiz complete! You got {score} out of {NUM_QUESTIONS} correct.")
-    if score == NUM_QUESTIONS:
-        print("🏆 Excellent! You're a Spanish master!")
-    elif score >= NUM_QUESTIONS // 2:
-        print("👍 Good job! Keep practicing.")
+    print(f"De quiz is klaar! Je hebt {score} van de {AANTAL_VRAGEN} goed.")
+    if score == AANTAL_VRAGEN:
+        print("🏆 Fantastisch! Je beheerst deze woorden uitstekend!")
+    elif score >= AANTAL_VRAGEN // 2:
+        print("👍 Goed gedaan! Blijf oefenen.")
     else:
-        print("📚 Keep studying! Practice makes perfect.")
+        print("📚 Blijf studeren! Oefening baart kunst.")
 
+# Start het spel
 if __name__ == "__main__":
-    run_quiz()
+    start_quiz()
