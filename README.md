@@ -13,6 +13,13 @@ Een eenvoudige command-line quiz applicatie in Python en JavaScript voor het ler
 - [🚀 Hoe te beginnen](#-hoe-te-beginnen)
 - [💡 Tips](#-tips)
 
+
+## Uitleg opdracht
+
+Je krijgt wat basiscode voor een quiz applicatie. Dit kun je gebruiken om jouw applicatie mee uit te bouwen. Je mag de code aanpassen als dat nodig is.
+Bij de User Stories staan ideeen voor meerdere features. Maar je mag ook je eigen features verzinnen.
+Voor elke feature kan je punten krijgen. 
+
 ## 📖 Code Uitleg
 
 Deze app is een quiz applicatie die Nederlandse woorden naar het Spaans laat vertalen. De gebruiker krijgt een Nederlands woord te zien en moet de Spaanse vertaling intypen. Aan het einde zie je hoeveel vragen je goed hebt van het totaal.
