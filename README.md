@@ -134,7 +134,7 @@ User stories zijn korte, eenvoudige beschrijvingen van een functionaliteit vanui
 
 
 
-### Werk je eigen user story uit!
+### Werk je eigen user story uit! (1 tot 100 punten)
 Bedenk wat je wil bouwen en schrijf het uit in een user story
 **Als** ...
 **Dan** ...

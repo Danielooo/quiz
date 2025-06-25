@@ -19,10 +19,16 @@ console.log("");
 
 // Begin met score 0
 let score = 0;
-let vraagNummer = 1;
 
-// Stel alle vragen
-while (vraagNummer <= AANTAL_VRAGEN) {
+// Recursieve functie om vragen te stellen
+function stelVraag(vraagNummer) {
+    // Check if we've asked all questions
+    if (vraagNummer > AANTAL_VRAGEN) {
+        // Toon eindresultaat
+        console.log(`Quiz klaar! Je hebt ${score} van de ${AANTAL_VRAGEN} goed.`);
+        return;
+    }
+
     // Haal het huidige woord op
     const nederlandsWoord = woordenlijst[vraagNummer - 1][0];
     const spaansWoord = woordenlijst[vraagNummer - 1][1];
@@ -48,10 +54,10 @@ while (vraagNummer <= AANTAL_VRAGEN) {
         console.log(`Score: ${score}`);
         console.log("");
         
-        // Ga naar volgende vraag
-        vraagNummer = vraagNummer + 1;
+        // Ga naar de volgende vraag door de functie opnieuw aan te roepen
+        stelVraag(vraagNummer + 1);
     });
 }
 
-// Toon eindresultaat
-console.log(`Quiz klaar! Je hebt ${score} van de ${AANTAL_VRAGEN} goed.`);
+// Start the quiz met de eerste vraag
+stelVraag(1);
