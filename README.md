@@ -1,12 +1,13 @@
 # Quiz App - Coding Wednesday
 
-Een eenvoudige command-line quiz applicatie in Python en JavaScript voor het leren van Nederlandse-Spaanse vertalingen.
+Een eenvoudige command-line quiz applicatie in Python, JavaScript en Java voor het leren van Nederlandse-Spaanse vertalingen.
 
 ## 📋 Inhoudsopgave
 
 - [📖 Code Uitleg](#-code-uitleg)
   - [Python Versie](#python-versie)
   - [JavaScript Versie](#javascript-versie)
+  - [Java Versie](#java-versie)
 - [🎯 User Stories](#-user-stories)
   - [Level 1](#level-1)
   - [Level 2](#level-2)
@@ -62,16 +63,17 @@ while vraag_nummer <= AANTAL_VRAGEN:
 #### Structuur
 1. **Woordenlijst**: Een array met Nederlandse woorden en hun Spaanse vertalingen
 2. **Instellingen**: Het aantal vragen dat gesteld wordt (momenteel 5)
-3. **Loop**: Een `while` loop die door de vragen gaat
+3. **Recursive Function**: Een recursieve functie die door de vragen gaat
 4. **Score**: Bijhouden van correcte antwoorden
 5. **Feedback**: Directe feedback na elk antwoord
 
 #### Belangrijke concepten
 - **Arrays**: `woordenlijst` bevat paren van woorden als nested arrays
-- **Loops**: `while` loop voor het herhalen van vragen
-- **Variables**: `score` en `vraagNummer` bijhouden (camelCase)
+- **Recursion**: `stelVraag()` functie roept zichzelf aan voor de volgende vraag
+- **Variables**: `score` en `aantalVragen` bijhouden (camelCase)
 - **Conditionals**: `if/else` voor het controleren van antwoorden
 - **Input/Output**: `readline` module en `console.log()` voor gebruikersinteractie
+- **Async Programming**: Proper handling van asynchrone readline calls
 
 #### Code voorbeelden
 ```javascript
@@ -82,14 +84,53 @@ const woordenlijst = [
     ["huis", "casa"],
 ];
 
-// While loop met teller
-while (vraagNummer <= AANTAL_VRAGEN) {
-    // Array toegang met index
-    const nederlandsWoord = woordenlijst[vraagNummer - 1][0];
-    const spaansWoord = woordenlijst[vraagNummer - 1][1];
+// Recursive function voor vragen
+function stelVraag(vraagNummer) {
+    if (vraagNummer > aantalVragen) {
+        // Base case: quiz klaar
+        return;
+    }
+    // Recursive call voor volgende vraag
+    stelVraag(vraagNummer + 1);
 }
 ```
 
+### Java Versie
+
+#### Structuur
+1. **Woordenlijst**: Een 2D array met Nederlandse woorden en hun Spaanse vertalingen
+2. **Instellingen**: Het aantal vragen dat gesteld wordt (aanpasbaar via input)
+3. **Recursive Function**: Een recursieve functie die door de vragen gaat
+4. **Score**: Bijhouden van correcte antwoorden
+5. **Feedback**: Directe feedback na elk antwoord
+
+#### Belangrijke concepten
+- **2D Arrays**: `woordenlijst` bevat paren van woorden als String[][]
+- **Recursion**: `stelVraag()` methode roept zichzelf aan voor de volgende vraag
+- **Static Variables**: `score` en `aantalVragen` als static class variables
+- **Conditionals**: `if/else` voor het controleren van antwoorden
+- **Input/Output**: `Scanner` class en `System.out.println()` voor gebruikersinteractie
+- **Exception Handling**: Try-catch voor input validation
+
+#### Code voorbeelden
+```java
+// Woordenlijst als 2D array
+private static final String[][] woordenlijst = {
+    {"kat", "gato"},
+    {"hond", "perro"},
+    {"huis", "casa"},
+};
+
+// Recursive method voor vragen
+public static void stelVraag(int vraagNummer) {
+    if (vraagNummer > aantalVragen) {
+        // Base case: quiz klaar
+        return;
+    }
+    // Recursive call voor volgende vraag
+    stelVraag(vraagNummer + 1);
+}
+```
 
 ## 🎯 User Stories
 User stories zijn korte, eenvoudige beschrijvingen van een functionaliteit vanuit het perspectief van een gebruiker. Ze volgen meestal dit format:
@@ -156,6 +197,24 @@ Bedenk wat je wil bouwen en schrijf het uit in een user story
 3. **Plan je aanpak**: Schrijf op wat je wilt veranderen
 4. **Test je code**: Zorg dat alles nog steeds werkt
 5. **Itereer**: Voeg steeds meer functionaliteit toe
+
+### Hoe te runnen
+
+#### Python
+```bash
+python quiz.py
+```
+
+#### JavaScript
+```bash
+node quiz.js
+```
+
+#### Java
+```bash
+javac Quiz.java
+java Quiz
+```
 
 ## 💡 Tips
 
